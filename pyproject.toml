@@ -13,8 +13,3 @@ dependencies = [
     "streamlit>=1.49.1",
     "ucimlrepo>=0.0.7",
 ]
-
-[dependency-groups]
-dev = [
-    "ipykernel>=6.30.1",
-]
