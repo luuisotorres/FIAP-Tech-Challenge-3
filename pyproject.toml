@@ -17,4 +17,5 @@ dependencies = [
     "streamlit>=1.49.1",
     "ucimlrepo>=0.0.7",
     "xgboost>=3.0.5",
+    "plotly>=6.3.0",
 ]
