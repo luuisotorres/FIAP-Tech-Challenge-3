@@ -25,13 +25,12 @@ bank_marketing_ml/
 │
 ├── src/            # project source code
 │   ├── data/       # ingestion and preprocessing
-│   ├── features/   # feature engineering
 │   ├── models/     # training, evaluation, prediction
 │   └── app/        # application (API or Streamlit)
 │
 ├── models/         # trained models (.pkl, .joblib)
-├── reports/        # reports and figures
-└── tests/          # unit tests
+│
+└── reports/        # reports and figures
 ```
 
 ---
