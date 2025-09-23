@@ -15,7 +15,7 @@ job = st.selectbox("Profissão", ["admin", "blue-collar", "entrepreneur", "house
 marital = st.selectbox("Estado civil", ["single", "married", "divorced"])
 education = st.selectbox("Educação", ["primary", "secondary", "tertiary", "unknown"])
 default = st.selectbox("Possui crédito em default?", ["no", "yes"])
-balance = st.number_input("Saldo médio anual", min_value=0, max_value=50000)
+balance = st.number_input("Saldo médio anual", min_value=0)
 housing = st.selectbox("Possui financiamento habitacional?", ["no", "yes"])
 loan = st.selectbox("Possui empréstimo pessoal?", ["no", "yes"])
 contact = st.selectbox("Tipo de contato", ["cellular", "telephone"])
