@@ -66,12 +66,12 @@ source .venv/bin/activate   # Linux/Mac
 
 ### 1. Generate processed datasets
 ```bash
-uv run scripts/make_dataset.py
+uv run -m scripts/make_dataset.py
 ```
 
 ### 2. Train the model
 ```bash
-uv run scripts/train_model.py
+uv run -m scripts/train_model.py
 ```
 
 ### 3. Evaluate the model
@@ -86,7 +86,7 @@ uv run scripts/evaluate_model.py
 After training a model, you can run the app (example with **Streamlit**):
 
 ```bash
-uv run streamlit run src/app/main.py
+uv run streamlit run streamlit/streamlit_app.py
 ```
 
 ---
