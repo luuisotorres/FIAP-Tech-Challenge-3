@@ -23,15 +23,13 @@ bank_marketing_ml/
 │
 ├── scripts/        # pipeline entrypoints
 │   ├── make_dataset.py
-│   ├── train_model.py
-│   └── evaluate_model.py
+│   └── train_model.py
 │
-├── src/            # project source code
-│   ├── data/       # ingestion and preprocessing
-│   ├── models/     # training, evaluation, prediction
-│   └── app/        # application (FastAPI)
-│
-└── reports/        # reports and figures
+└── src/            # project source code
+    ├── data/       # ingestion and preprocessing
+    ├── models/     # training, evaluation, prediction
+    └── app/        # application (FastAPI)
+ 
 ```
 
 ---
@@ -93,11 +91,6 @@ uv run -m scripts.make_dataset
 uv run -m scripts.train_model
 ```
 
-<!-- ### 3. Evaluate the model
-```bash
-uv run scripts/evaluate_model.py
-``` -->
-
 ---
 
 ## 🖥️ Application
@@ -112,17 +105,6 @@ You can run the steamlit app with:
 ```bash
 uv run -m streamlit run frontend/streamlit_app.py 
 ```
-
-<!-- ---
-
-## ✅ Testing
-
-Run unit tests:
-```bash
-uv run pytest
-```
-
---- -->
 
 ## 👥 Team
 

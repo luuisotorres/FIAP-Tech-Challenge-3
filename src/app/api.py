@@ -94,14 +94,6 @@ def get_dataset_table():
     return HTMLResponse(content=html_content, status_code=200)
 
 
-@app.get("/favicon.ico", include_in_schema=False)
-def favicon():
-    """
-    Endpoint for the favicon.
-    """
-    return FileResponse("favicon.ico")
-
-
 @app.post("/predict")
 def predict_endpoint(lead_data: MarketingLead):
     # Convert input to DataFrame
