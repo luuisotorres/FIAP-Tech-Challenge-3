@@ -21,7 +21,8 @@ dependencies = [
     "matplotlib>=3.10.6",
     "seaborn>=0.13.2",
     "streamlit>=1.49.1",
-    "ucimlrepo>=0.0.7"
+    "ucimlrepo>=0.0.7",
+    "python-dotenv>=1.1.1",
 ]
 
 [tool.setuptools.packages.find]

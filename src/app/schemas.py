@@ -1,22 +1,77 @@
 from pydantic import BaseModel
+from enum import Enum
+
+class JobEnum(str, Enum):
+    admin = "admin."
+    blue_collar = "blue-collar"
+    entrepreneur = "entrepreneur"
+    housemaid = "housemaid"
+    management = "management"
+    retired = "retired"
+    self_employed = "self-employed"
+    services = "services"
+    student = "student"
+    technician = "technician"
+    unemployed = "unemployed"
+    unknown = "unknown"
+
+class MaritalEnum(str, Enum):
+    divorced = "divorced"
+    married = "married"
+    single = "single"
+
+class EducationEnum(str, Enum):
+    primary = "primary"
+    secondary = "secondary"
+    tertiary = "tertiary"
+    unknown = "unknown"
+
+class YesNoEnum(str, Enum):
+    yes = "yes"
+    no = "no"
+
+class ContactEnum(str, Enum):
+    cellular = "cellular"
+    telephone = "telephone"
+    unknown = "unknown"
+
+class MonthEnum(str, Enum):
+    jan = "jan"
+    feb = "feb"
+    mar = "mar"
+    apr = "apr"
+    may = "may"
+    jun = "jun"
+    jul = "jul"
+    aug = "aug"
+    sep = "sep"
+    oct = "oct"
+    nov = "nov"
+    dec = "dec"
+
+class PoutcomeEnum(str, Enum):
+    success = "success"
+    failure = "failure"
+    other = "other"
+    unknown = "unknown"
 
 
-class Observation(BaseModel):
+class MarketingLead(BaseModel):
     age: int
-    job: str
-    marital: str
-    education: str
-    default: str
+    job: JobEnum
+    marital: MaritalEnum
+    education: EducationEnum
+    default: YesNoEnum
     balance: float
-    housing: str
-    loan: str
-    contact: str
+    housing: YesNoEnum
+    loan: YesNoEnum
+    contact: ContactEnum
     day_of_month: int
-    month: str
+    month: MonthEnum
     campaign: int
     pdays: int
     previous: int
-    poutcome: str
+    poutcome: PoutcomeEnum
 
     class Config:
         json_schema_extra = {

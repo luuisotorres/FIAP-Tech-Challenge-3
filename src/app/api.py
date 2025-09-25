@@ -23,7 +23,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.responses import HTMLResponse, FileResponse
 from data.download import download_dataset
 from src.config import RAW_DATASET_FILE
-from src.app.schemas import Observation
+from src.app.schemas import MarketingLead
 from src.app.ml_model import load_model, predict
 
 
@@ -103,9 +103,9 @@ def favicon():
 
 
 @app.post("/predict")
-def predict_endpoint(observation: Observation):
+def predict_endpoint(lead_data: MarketingLead):
     # Convert input to DataFrame
-    input_df = pd.DataFrame([observation.model_dump()])
+    input_df = pd.DataFrame([lead_data.model_dump()])
 
     # Make prediction
     try:
