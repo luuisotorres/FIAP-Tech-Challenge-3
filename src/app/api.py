@@ -21,7 +21,7 @@ Authors:
 import pandas as pd
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import HTMLResponse, FileResponse
-from data.download import download_dataset
+from src.data.download import download_dataset
 from src.config import RAW_DATASET_FILE
 from src.app.schemas import MarketingLead
 from src.app.ml_model import load_model, predict
@@ -41,9 +41,47 @@ load_model()
 @app.get("/")
 def root():
     """
-    Root endpoint of the API.
+    Root endpoint of the API, providing a welcome page with links to documentation and main endpoints.
+
     """
-    return {"message": "Tech Challenge 3 - Bank Marketing API"}
+    html_content = """
+    <html>
+        <head>
+            <title>Tech Challenge 3 - Bank Marketing API</title>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+            <style>
+                body { background-color: #f8f9fa; }
+                .container { max-width: 800px; margin-top: 50px; }
+                .card { box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+                .card-header { background-color: #007bff; color: white; }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <h1>Bank Marketing API</h1>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Tech Challenge 3 - FIAP</h5>
+                        <p class="card-text">This API provides endpoints to interact with the Bank Marketing dataset, including data download and lead prediction.</p>
+                        <p class="card-text"><strong>Explore the available endpoints:</strong></p>
+                        <div class="list-group">
+                            <a href="/docs" class="list-group-item list-group-item-action">Swagger UI Docs</a>
+                            <a href="/redoc" class="list-group-item list-group-item-action">ReDoc</a>
+                            <a href="/download" class="list-group-item list-group-item-action">Download Dataset</a>
+                            <a href="/dataset" class="list-group-item list-group-item-action">View Dataset Preview</a>
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Version: 1.0.0
+                    </div>
+                </div>
+            </div>
+        </body>
+    </html>
+    """
+    return HTMLResponse(content=html_content)
 
 
 @app.get("/download")
