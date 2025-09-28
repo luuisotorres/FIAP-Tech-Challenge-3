@@ -1,21 +1,36 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "fiap-tech-challenge-3"
 version = "0.1.0"
-description = "Add your description here"
+description = "API e scripts para ingestão, processamento e previsão do dataset Bank Marketing."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "imbalanced-learn>=0.14.0",
     "lightgbm>=4.6.0",
     "matplotlib>=3.10.6",
-    "matplotlib>=3.10.6",
-    "numpy>=2.3.2",
+    "fastapi>=0.116.2",
+    "uvicorn>=0.36.0",
     "optuna>=4.5.0",
     "pandas>=2.3.2",
+    "numpy>=2.3.2",
     "scikit-learn>=1.7.1",
+    "matplotlib>=3.10.6",
     "seaborn>=0.13.2",
     "streamlit>=1.49.1",
     "ucimlrepo>=0.0.7",
+    "python-dotenv>=1.1.1",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=6.30.1",
     "xgboost>=3.0.5",
     "plotly>=6.3.0",
     "nbformat>=4.2.0",
