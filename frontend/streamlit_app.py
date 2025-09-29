@@ -24,9 +24,11 @@ poutcome_options = [poutcome.value for poutcome in PoutcomeEnum]
 
 # Streamlit start
 st.title("📊 Lead Conversion Prediction")
-st.write("Fill in the customer information to predict if they will subscribe to a term deposit.")
+st.write("Welcome to the Lead Conversion Prediction app!")
+st.write("This app predicts whether a customer will subscribe to a term deposit based on their information.")
+st.write("Fill in the customer information in the sidebar and click the button to get a prediction.")
 
-st.sidebar.header("👤 Customer Information")
+st.sidebar.header("Customer Information")
 age = st.sidebar.number_input("Age", min_value=18, max_value=100)
 job = st.sidebar.selectbox("Job", job_options)
 marital = st.sidebar.selectbox("Marital Status", marital_options)
@@ -95,7 +97,7 @@ if st.sidebar.button("Predict Lead Outcome"):
 
                 st.header("Result")
 
-                if prediction == "yes":
+                if prediction == 1:
                     st.success(f"✅ The lead is LIKELY to subscribe! (Probability: {probability:.2%})")
                 else:
                     st.error(f"❌ The lead is UNLIKELY to subscribe. (Probability: {probability:.2%})")
