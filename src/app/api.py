@@ -21,6 +21,7 @@ Authors:
 import pandas as pd
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import HTMLResponse, FileResponse
+from fastapi.staticfiles import StaticFiles
 from src.data.download import download_dataset
 from src.config import RAW_DATASET_FILE
 from src.app.schemas import MarketingLead
@@ -33,6 +34,9 @@ app = FastAPI(
     description="API to download, process, and store the Bank Marketing dataset in Parquet format.",
     version="1.0.0"
 )
+
+# Mount static directory to serve local files
+app.mount("/static", StaticFiles(directory="src/app/static"), name="static")    
 
 # Load model once at startup
 load_model()
@@ -48,7 +52,7 @@ def root():
     <html>
         <head>
             <title>Tech Challenge 3 - Bank Marketing API</title>
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+            <link rel="stylesheet" href="/static/bootstrap.min.css">
             <style>
                 body { background-color: #f8f9fa; }
                 .container { max-width: 800px; margin-top: 50px; }
@@ -119,7 +123,7 @@ def get_dataset_table():
         <head>
             <title>Bank Marketing Dataset</title>
             <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+            <link rel="stylesheet" href="/static/bootstrap.min.css">
         </head>
         <body>
             <div class="container mt-4">
