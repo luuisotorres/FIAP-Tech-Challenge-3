@@ -45,19 +45,6 @@ pdays = st.sidebar.number_input("Days Since Last Contact (-1 = never)", min_valu
 previous = st.sidebar.number_input("Number of Previous Contacts Before this Campaign", min_value=0, max_value=50)
 poutcome = st.sidebar.selectbox("Previous Campaign Outcome", poutcome_options)
 
-# BOTAO MOCK
-#if st.button("🔍 Simular fechamento do lead"):
-#   # PROB: 0 - 1
-#    prob = random.random()
-#    prediction = "yes" if prob > 0.5 else "no"
-
-#    if prediction == "yes":
-#        st.success(f"✅ O lead TEM ALTA chance de fechar! (Probabilidade simulada: {prob:.2%})")
-#    else:
-#       st.error(f"❌ O lead provavelmente NÃO fechará. (Probabilidade simulada: {prob:.2%})")
-
-#    st.subheader("📋 Resumo dos inputs preenchidos")
-
 # Button to Send Data and Make Prediction
 if st.sidebar.button("Predict Lead Outcome"):
     # Create a MarketingLead instance with the form data
